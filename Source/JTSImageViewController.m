@@ -97,7 +97,6 @@ typedef struct {
 @property (strong, nonatomic) UITapGestureRecognizer *doubleTapperPhoto;
 @property (strong, nonatomic) UITapGestureRecognizer *singleTapperText;
 @property (strong, nonatomic) UILongPressGestureRecognizer *longPresserPhoto;
-@property (strong, nonatomic) UIPanGestureRecognizer *panRecognizer;
 
 // UIDynamics
 @property (strong, nonatomic) UIDynamicAnimator *animator;
@@ -545,11 +544,6 @@ typedef struct {
     [self.view addGestureRecognizer:self.singleTapperPhoto];
     [self.view addGestureRecognizer:self.doubleTapperPhoto];
     [self.view addGestureRecognizer:self.longPresserPhoto];
-    
-    self.panRecognizer = [[UIPanGestureRecognizer alloc] init];
-    [self.panRecognizer addTarget:self action:@selector(dismissingPanGestureRecognizerPanned:)];
-    self.panRecognizer.delegate = self;
-    [self.scrollView addGestureRecognizer:self.panRecognizer];
 }
 
 - (void)setupTextViewTapGestureRecognizer {
@@ -1261,10 +1255,10 @@ typedef struct {
 #pragma mark - Snapshots
 
 - (void) updateSnapshot {
-    UIView *newSnapshotView = [self snapshotFromViewController:self.presentingViewController];
-    [self.view insertSubview: newSnapshotView aboveSubview: self.snapshotView];
-    [self.snapshotView removeFromSuperview];
-    self.snapshotView = newSnapshotView;
+//    UIView *newSnapshotView = [self snapshotFromViewController:self.presentingViewController];
+//    [self.view insertSubview: newSnapshotView aboveSubview: self.snapshotView];
+//    [self.snapshotView removeFromSuperview];
+//    self.snapshotView = newSnapshotView;
 }
 
 - (UIView *)snapshotFromParentmostViewController:(UIViewController *)viewController {
@@ -1864,10 +1858,6 @@ typedef struct {
     
     if ([self.interactionsDelegate respondsToSelector:@selector(imageViewerShouldTemporarilyIgnoreTouches:)]) {
         shouldReceiveTouch = ![self.interactionsDelegate imageViewerShouldTemporarilyIgnoreTouches:self];
-    }
-    
-    if (shouldReceiveTouch && gestureRecognizer == self.panRecognizer) {
-        shouldReceiveTouch = (self.scrollView.zoomScale == 1 && _flags.scrollViewIsAnimatingAZoom == NO);
     }
     
     return shouldReceiveTouch;
