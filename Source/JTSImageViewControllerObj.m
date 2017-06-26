@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Nice Boy LLC. All rights reserved.
 //
 
-#import "JTSImageViewController.h"
+#import "JTSImageViewControllerObj.h"
 
 #import "JTSSimpleImageDownloader.h"
 #import "UIImage+JTSImageEffects.h"

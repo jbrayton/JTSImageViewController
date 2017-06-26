@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212026651F01CC4D00219EA5 /* JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 212026641F01CC4300219EA5 /* JTSImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDE41F018F7000A352A1 /* JTSImageViewControllerFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDE21F018F7000A352A1 /* JTSImageViewControllerFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDF61F018FB000A352A1 /* JTSAnimatedGIFUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEA1F018FB000A352A1 /* JTSAnimatedGIFUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDF71F018FB000A352A1 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDEB1F018FB000A352A1 /* JTSAnimatedGIFUtility.m */; };
 		2153FDF81F018FB000A352A1 /* JTSImageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEC1F018FB000A352A1 /* JTSImageInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDF91F018FB000A352A1 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDED1F018FB000A352A1 /* JTSImageInfo.m */; };
-		2153FDFA1F018FB000A352A1 /* JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEE1F018FB000A352A1 /* JTSImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2153FDFB1F018FB000A352A1 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDEF1F018FB000A352A1 /* JTSImageViewController.m */; };
+		2153FDFA1F018FB000A352A1 /* JTSImageViewControllerObj.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEE1F018FB000A352A1 /* JTSImageViewControllerObj.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2153FDFB1F018FB000A352A1 /* JTSImageViewControllerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDEF1F018FB000A352A1 /* JTSImageViewControllerObj.m */; };
 		2153FDFC1F018FB000A352A1 /* JTSSimpleImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDF01F018FB000A352A1 /* JTSSimpleImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDFD1F018FB000A352A1 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDF11F018FB000A352A1 /* JTSSimpleImageDownloader.m */; };
 		2153FDFE1F018FB000A352A1 /* UIApplication+JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDF21F018FB000A352A1 /* UIApplication+JTSImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		212026641F01CC4300219EA5 /* JTSImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
 		2153FDDF1F018F7000A352A1 /* JTSImageViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JTSImageViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2153FDE21F018F7000A352A1 /* JTSImageViewControllerFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JTSImageViewControllerFramework.h; sourceTree = "<group>"; };
 		2153FDE31F018F7000A352A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -30,8 +32,8 @@
 		2153FDEB1F018FB000A352A1 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSAnimatedGIFUtility.m; path = Source/JTSAnimatedGIFUtility.m; sourceTree = SOURCE_ROOT; };
 		2153FDEC1F018FB000A352A1 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageInfo.h; path = Source/JTSImageInfo.h; sourceTree = SOURCE_ROOT; };
 		2153FDED1F018FB000A352A1 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageInfo.m; path = Source/JTSImageInfo.m; sourceTree = SOURCE_ROOT; };
-		2153FDEE1F018FB000A352A1 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageViewController.h; path = Source/JTSImageViewController.h; sourceTree = SOURCE_ROOT; };
-		2153FDEF1F018FB000A352A1 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageViewController.m; path = Source/JTSImageViewController.m; sourceTree = SOURCE_ROOT; };
+		2153FDEE1F018FB000A352A1 /* JTSImageViewControllerObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageViewControllerObj.h; path = Source/JTSImageViewControllerObj.h; sourceTree = SOURCE_ROOT; };
+		2153FDEF1F018FB000A352A1 /* JTSImageViewControllerObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageViewControllerObj.m; path = Source/JTSImageViewControllerObj.m; sourceTree = SOURCE_ROOT; };
 		2153FDF01F018FB000A352A1 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSSimpleImageDownloader.h; path = Source/JTSSimpleImageDownloader.h; sourceTree = SOURCE_ROOT; };
 		2153FDF11F018FB000A352A1 /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSSimpleImageDownloader.m; path = Source/JTSSimpleImageDownloader.m; sourceTree = SOURCE_ROOT; };
 		2153FDF21F018FB000A352A1 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIApplication+JTSImageViewController.h"; path = "Source/UIApplication+JTSImageViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -54,6 +56,7 @@
 		2153FDD51F018F7000A352A1 = {
 			isa = PBXGroup;
 			children = (
+				212026641F01CC4300219EA5 /* JTSImageViewController.h */,
 				2153FDE11F018F7000A352A1 /* JTSImageViewController */,
 				2153FDE01F018F7000A352A1 /* Products */,
 			);
@@ -75,8 +78,8 @@
 				2153FDEC1F018FB000A352A1 /* JTSImageInfo.h */,
 				2153FDED1F018FB000A352A1 /* JTSImageInfo.m */,
 				2153FDE21F018F7000A352A1 /* JTSImageViewControllerFramework.h */,
-				2153FDEE1F018FB000A352A1 /* JTSImageViewController.h */,
-				2153FDEF1F018FB000A352A1 /* JTSImageViewController.m */,
+				2153FDEE1F018FB000A352A1 /* JTSImageViewControllerObj.h */,
+				2153FDEF1F018FB000A352A1 /* JTSImageViewControllerObj.m */,
 				2153FDF01F018FB000A352A1 /* JTSSimpleImageDownloader.h */,
 				2153FDF11F018FB000A352A1 /* JTSSimpleImageDownloader.m */,
 				2153FDF21F018FB000A352A1 /* UIApplication+JTSImageViewController.h */,
@@ -95,8 +98,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				212026651F01CC4D00219EA5 /* JTSImageViewController.h in Headers */,
 				2153FDE41F018F7000A352A1 /* JTSImageViewControllerFramework.h in Headers */,
-				2153FDFA1F018FB000A352A1 /* JTSImageViewController.h in Headers */,
+				2153FDFA1F018FB000A352A1 /* JTSImageViewControllerObj.h in Headers */,
 				2153FDF61F018FB000A352A1 /* JTSAnimatedGIFUtility.h in Headers */,
 				2153FDF81F018FB000A352A1 /* JTSImageInfo.h in Headers */,
 				2153FDFC1F018FB000A352A1 /* JTSSimpleImageDownloader.h in Headers */,
@@ -179,7 +183,7 @@
 				2153FE011F018FB000A352A1 /* UIImage+JTSImageEffects.m in Sources */,
 				2153FDFD1F018FB000A352A1 /* JTSSimpleImageDownloader.m in Sources */,
 				2153FDFF1F018FB000A352A1 /* UIApplication+JTSImageViewController.m in Sources */,
-				2153FDFB1F018FB000A352A1 /* JTSImageViewController.m in Sources */,
+				2153FDFB1F018FB000A352A1 /* JTSImageViewControllerObj.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
