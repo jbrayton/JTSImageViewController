@@ -15,6 +15,6 @@
 #import <JTSImageViewController/JTSImageViewControllerObj.h>
 #import <JTSImageViewController/JTSSimpleImageDownloader.h>
 #import <JTSImageViewController/UIApplication+JTSImageViewController.h>
-#import <JTSImageViewController/UIApplication+JTSImageEffects.h>
+#import <JTSImageViewController/UIImage+JTSImageEffects.h>
 
 #endif /* JTSImageViewController_h */
