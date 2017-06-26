@@ -74,6 +74,7 @@
 				2153FDEB1F018FB000A352A1 /* JTSAnimatedGIFUtility.m */,
 				2153FDEC1F018FB000A352A1 /* JTSImageInfo.h */,
 				2153FDED1F018FB000A352A1 /* JTSImageInfo.m */,
+				2153FDE21F018F7000A352A1 /* JTSImageViewController.h */,
 				2153FDEE1F018FB000A352A1 /* JTSImageViewController.h */,
 				2153FDEF1F018FB000A352A1 /* JTSImageViewController.m */,
 				2153FDF01F018FB000A352A1 /* JTSSimpleImageDownloader.h */,
@@ -82,7 +83,6 @@
 				2153FDF31F018FB000A352A1 /* UIApplication+JTSImageViewController.m */,
 				2153FDF41F018FB000A352A1 /* UIImage+JTSImageEffects.h */,
 				2153FDF51F018FB000A352A1 /* UIImage+JTSImageEffects.m */,
-				2153FDE21F018F7000A352A1 /* JTSImageViewController.h */,
 				2153FDE31F018F7000A352A1 /* Info.plist */,
 			);
 			path = JTSImageViewController;
@@ -95,9 +95,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2153FDFA1F018FB000A352A1 /* JTSImageViewController.h in Headers */,
 				2153FDF61F018FB000A352A1 /* JTSAnimatedGIFUtility.h in Headers */,
 				2153FDF81F018FB000A352A1 /* JTSImageInfo.h in Headers */,
-				2153FDFA1F018FB000A352A1 /* JTSImageViewController.h in Headers */,
 				2153FDFC1F018FB000A352A1 /* JTSSimpleImageDownloader.h in Headers */,
 				2153FDFE1F018FB000A352A1 /* UIApplication+JTSImageViewController.h in Headers */,
 				2153FE001F018FB000A352A1 /* UIImage+JTSImageEffects.h in Headers */,
