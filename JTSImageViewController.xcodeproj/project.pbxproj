@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		2153FDE41F018F7000A352A1 /* JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDE21F018F7000A352A1 /* JTSImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2153FDF61F018FB000A352A1 /* JTSAnimatedGIFUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEA1F018FB000A352A1 /* JTSAnimatedGIFUtility.h */; };
+		2153FDF61F018FB000A352A1 /* JTSAnimatedGIFUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEA1F018FB000A352A1 /* JTSAnimatedGIFUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDF71F018FB000A352A1 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDEB1F018FB000A352A1 /* JTSAnimatedGIFUtility.m */; };
-		2153FDF81F018FB000A352A1 /* JTSImageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEC1F018FB000A352A1 /* JTSImageInfo.h */; };
+		2153FDF81F018FB000A352A1 /* JTSImageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEC1F018FB000A352A1 /* JTSImageInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDF91F018FB000A352A1 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDED1F018FB000A352A1 /* JTSImageInfo.m */; };
-		2153FDFA1F018FB000A352A1 /* JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEE1F018FB000A352A1 /* JTSImageViewController.h */; };
+		2153FDFA1F018FB000A352A1 /* JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDEE1F018FB000A352A1 /* JTSImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDFB1F018FB000A352A1 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDEF1F018FB000A352A1 /* JTSImageViewController.m */; };
-		2153FDFC1F018FB000A352A1 /* JTSSimpleImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDF01F018FB000A352A1 /* JTSSimpleImageDownloader.h */; };
+		2153FDFC1F018FB000A352A1 /* JTSSimpleImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDF01F018FB000A352A1 /* JTSSimpleImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDFD1F018FB000A352A1 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDF11F018FB000A352A1 /* JTSSimpleImageDownloader.m */; };
-		2153FDFE1F018FB000A352A1 /* UIApplication+JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDF21F018FB000A352A1 /* UIApplication+JTSImageViewController.h */; };
+		2153FDFE1F018FB000A352A1 /* UIApplication+JTSImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDF21F018FB000A352A1 /* UIApplication+JTSImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FDFF1F018FB000A352A1 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDF31F018FB000A352A1 /* UIApplication+JTSImageViewController.m */; };
-		2153FE001F018FB000A352A1 /* UIImage+JTSImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDF41F018FB000A352A1 /* UIImage+JTSImageEffects.h */; };
+		2153FE001F018FB000A352A1 /* UIImage+JTSImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 2153FDF41F018FB000A352A1 /* UIImage+JTSImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2153FE011F018FB000A352A1 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 2153FDF51F018FB000A352A1 /* UIImage+JTSImageEffects.m */; };
 /* End PBXBuildFile section */
 
@@ -95,13 +95,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2153FE001F018FB000A352A1 /* UIImage+JTSImageEffects.h in Headers */,
-				2153FDFE1F018FB000A352A1 /* UIApplication+JTSImageViewController.h in Headers */,
-				2153FDE41F018F7000A352A1 /* JTSImageViewController.h in Headers */,
-				2153FDFA1F018FB000A352A1 /* JTSImageViewController.h in Headers */,
-				2153FDF81F018FB000A352A1 /* JTSImageInfo.h in Headers */,
-				2153FDFC1F018FB000A352A1 /* JTSSimpleImageDownloader.h in Headers */,
 				2153FDF61F018FB000A352A1 /* JTSAnimatedGIFUtility.h in Headers */,
+				2153FDF81F018FB000A352A1 /* JTSImageInfo.h in Headers */,
+				2153FDFA1F018FB000A352A1 /* JTSImageViewController.h in Headers */,
+				2153FDFC1F018FB000A352A1 /* JTSSimpleImageDownloader.h in Headers */,
+				2153FDFE1F018FB000A352A1 /* UIApplication+JTSImageViewController.h in Headers */,
+				2153FE001F018FB000A352A1 /* UIImage+JTSImageEffects.h in Headers */,
+				2153FDE41F018F7000A352A1 /* JTSImageViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
