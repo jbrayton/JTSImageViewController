@@ -506,6 +506,8 @@ typedef struct {
     self.textView.delegate = self;
     self.textView.textColor = [UIColor whiteColor];
     self.textView.backgroundColor = [UIColor clearColor];
+    self.textView.editable = NO;
+    self.textView.selectable = NO;
     
     UIFont *font = nil;
     if ([self.optionsDelegate respondsToSelector:@selector(fontForAltTextInImageViewer:)]) {
