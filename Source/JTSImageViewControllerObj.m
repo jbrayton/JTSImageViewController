@@ -340,6 +340,7 @@ typedef struct {
         flags.isRotating = NO;
         strongSelf.flags = flags;
     }];
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 #endif
 
