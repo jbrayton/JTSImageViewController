@@ -105,7 +105,6 @@ typedef struct {
 @property (strong, nonatomic) UITapGestureRecognizer *doubleTapperPhoto;
 @property (strong, nonatomic) UITapGestureRecognizer *singleTapperText;
 @property (strong, nonatomic) UILongPressGestureRecognizer *longPresserPhoto;
-@property (strong, nonatomic) UIPanGestureRecognizer *panRecognizer;
 
 // UIDynamics
 @property (strong, nonatomic) UIDynamicAnimator *animator;
@@ -556,12 +555,15 @@ typedef struct {
     [self.view addGestureRecognizer:self.singleTapperPhoto];
     [self.view addGestureRecognizer:self.doubleTapperPhoto];
     [self.view addGestureRecognizer:self.longPresserPhoto];
-    
-    self.panRecognizer = [[UIPanGestureRecognizer alloc] init];
-    self.panRecognizer.maximumNumberOfTouches = 1;
-    [self.panRecognizer addTarget:self action:@selector(dismissingPanGestureRecognizerPanned:)];
-    self.panRecognizer.delegate = self;
-    [self.scrollView addGestureRecognizer:self.panRecognizer];
+//<<<<<<< HEAD:Source/JTSImageViewControllerObj.m
+//    
+//    self.panRecognizer = [[UIPanGestureRecognizer alloc] init];
+//    self.panRecognizer.maximumNumberOfTouches = 1;
+//    [self.panRecognizer addTarget:self action:@selector(dismissingPanGestureRecognizerPanned:)];
+//    self.panRecognizer.delegate = self;
+//    [self.scrollView addGestureRecognizer:self.panRecognizer];
+//=======
+//>>>>>>> ello/master:Source/JTSImageViewController.m
 }
 
 - (void)setupTextViewTapGestureRecognizer {
@@ -1030,7 +1032,9 @@ typedef struct {
     if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerWillBeginDismissal:withContainerView:)]) {
         [weakSelf.animationDelegate imageViewerWillBeginDismissal:weakSelf withContainerView:weakSelf.view];
     }
-    
+
+    [self updateSnapshot];
+
     // Have to dispatch after or else the image view changes above won't be
     // committed prior to the animations below. A single dispatch_async(dispatch_get_main_queue()
     // wouldn't work under certain scrolling conditions, so it has to be an ugly
@@ -1106,7 +1110,8 @@ typedef struct {
                     [[UIApplication sharedApplication] setStatusBarHidden:_startingInfo.statusBarHiddenPriorToPresentation
                                                             withAnimation:UIStatusBarAnimationNone];
                 }
-                
+
+                [weakSelf.dismissalDelegate imageViewerWillDismiss:weakSelf];
                 [weakSelf.presentingViewController dismissViewControllerAnimated:NO completion:^{
                     [weakSelf.dismissalDelegate imageViewerDidDismiss:weakSelf];
                 }];
@@ -1121,7 +1126,9 @@ typedef struct {
     _flags.isAnimatingAPresentationOrDismissal = YES ;
     _flags.isDismissing = YES;
     
+
     __weak JTSImageViewController *weakSelf = self;
+    [weakSelf.dismissalDelegate imageViewerWillDismiss:weakSelf];
     
     CGFloat duration = JTSImageViewController_TransitionAnimationDuration;
     if (USE_DEBUG_SLOW_ANIMATIONS == 1) {
@@ -1131,7 +1138,9 @@ typedef struct {
     if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerWillBeginDismissal:withContainerView:)]) {
         [weakSelf.animationDelegate imageViewerWillBeginDismissal:weakSelf withContainerView:weakSelf.view];
     }
-    
+
+    [self updateSnapshot];
+
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
         
         if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerWillAnimateDismissal:withContainerView:duration:)]) {
@@ -1174,7 +1183,9 @@ typedef struct {
     if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerWillBeginDismissal:withContainerView:)]) {
         [weakSelf.animationDelegate imageViewerWillBeginDismissal:weakSelf withContainerView:weakSelf.view];
     }
-    
+
+    [self updateSnapshot];
+
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
         
         if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerWillAnimateDismissal:withContainerView:duration:)]) {
@@ -1197,6 +1208,7 @@ typedef struct {
                                                     withAnimation:UIStatusBarAnimationFade];
         }
     } completion:^(BOOL finished) {
+        [weakSelf.dismissalDelegate imageViewerWillDismiss:weakSelf];
         [weakSelf.presentingViewController dismissViewControllerAnimated:NO completion:^{
             [weakSelf.dismissalDelegate imageViewerDidDismiss:weakSelf];
         }];
@@ -1228,7 +1240,9 @@ typedef struct {
     if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerWillBeginDismissal:withContainerView:)]) {
         [weakSelf.animationDelegate imageViewerWillBeginDismissal:weakSelf withContainerView:weakSelf.view];
     }
-    
+
+    [self updateSnapshot];
+
     [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
         
         if ([weakSelf.animationDelegate respondsToSelector:@selector(imageViewerWillAnimateDismissal:withContainerView:duration:)]) {
@@ -1251,6 +1265,7 @@ typedef struct {
                                                     withAnimation:UIStatusBarAnimationFade];
         }
     } completion:^(BOOL finished) {
+        [weakSelf.dismissalDelegate imageViewerWillDismiss:weakSelf];
         [weakSelf.presentingViewController dismissViewControllerAnimated:NO completion:^{
             [weakSelf.dismissalDelegate imageViewerDidDismiss:weakSelf];
         }];
@@ -1259,11 +1274,22 @@ typedef struct {
 
 #pragma mark - Snapshots
 
+- (void) updateSnapshot {
+//    UIView *newSnapshotView = [self snapshotFromViewController:self.presentingViewController];
+//    [self.view insertSubview: newSnapshotView aboveSubview: self.snapshotView];
+//    [self.snapshotView removeFromSuperview];
+//    self.snapshotView = newSnapshotView;
+}
+
 - (UIView *)snapshotFromParentmostViewController:(UIViewController *)viewController {
     
     UIViewController *presentingViewController = viewController.view.window.rootViewController;
     while (presentingViewController.presentedViewController) presentingViewController = presentingViewController.presentedViewController;
-    UIView *snapshot = [presentingViewController.view snapshotViewAfterScreenUpdates:YES];
+    return [self snapshotFromViewController:presentingViewController];
+}
+
+- (UIView *)snapshotFromViewController:(UIViewController *)viewController {
+    UIView *snapshot = [viewController.view snapshotViewAfterScreenUpdates:YES];
     snapshot.clipsToBounds = NO;
     return snapshot;
 }
@@ -1852,10 +1878,6 @@ typedef struct {
     
     if ([self.interactionsDelegate respondsToSelector:@selector(imageViewerShouldTemporarilyIgnoreTouches:)]) {
         shouldReceiveTouch = ![self.interactionsDelegate imageViewerShouldTemporarilyIgnoreTouches:self];
-    }
-    
-    if (shouldReceiveTouch && gestureRecognizer == self.panRecognizer) {
-        shouldReceiveTouch = (self.scrollView.zoomScale == 1 && _flags.scrollViewIsAnimatingAZoom == NO);
     }
     
     return shouldReceiveTouch;
