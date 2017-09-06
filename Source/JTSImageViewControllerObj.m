@@ -91,7 +91,7 @@ typedef struct {
 // Views
 @property (strong, nonatomic) UIView *progressContainer;
 @property (strong, nonatomic) UIView *outerContainerForScrollView;
-@property (strong, nonatomic) UIView *blackBackdrop;
+//@property (strong, nonatomic) UIView *blackBackdrop;
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (strong, nonatomic) UITextView *textView;
@@ -490,10 +490,10 @@ typedef struct {
     self.view.backgroundColor = [UIColor blackColor];
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
-    self.blackBackdrop = [[UIView alloc] initWithFrame:CGRectInset(self.view.bounds, -512, -512)];
-    self.blackBackdrop.backgroundColor = [UIColor blackColor];
-    self.blackBackdrop.alpha = 0;
-    [self.view addSubview:self.blackBackdrop];
+//    self.blackBackdrop = [[UIView alloc] initWithFrame:CGRectInset(self.view.bounds, -512, -512)];
+//    self.blackBackdrop.backgroundColor = [UIColor blackColor];
+//    self.blackBackdrop.alpha = 0;
+//    [self.view addSubview:self.blackBackdrop];
     
     CGFloat outerMargin = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) ? 80.0 : 40.0;
     
@@ -774,7 +774,7 @@ typedef struct {
                  if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Scaled) {
                      [weakSelf addMotionEffectsToSnapshotView];
                  }
-                 weakSelf.blackBackdrop.alpha = self.alphaForBackgroundDimmingOverlay;
+//                 weakSelf.blackBackdrop.alpha = self.alphaForBackgroundDimmingOverlay;
                  
                  weakSelf.scrollView.alpha = 1.0f;
                  weakSelf.scrollView.transform = CGAffineTransformIdentity;
@@ -868,7 +868,7 @@ typedef struct {
                  if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Scaled) {
                      [weakSelf addMotionEffectsToSnapshotView];
                  }
-                 weakSelf.blackBackdrop.alpha = self.alphaForBackgroundDimmingOverlay;
+//                 weakSelf.blackBackdrop.alpha = self.alphaForBackgroundDimmingOverlay;
                  
                  textViewSnapshot.alpha = 1.0;
                  textViewSnapshot.transform = CGAffineTransformIdentity;
@@ -986,7 +986,7 @@ typedef struct {
                     [weakSelf.animationDelegate imageViewerWillAnimateDismissal:weakSelf withContainerView:weakSelf.view duration:duration];
                 }
                 
-                weakSelf.blackBackdrop.alpha = 0;
+//                weakSelf.blackBackdrop.alpha = 0;
                 
                 if (_startingInfo.presentingViewControllerPresentedFromItsUnsupportedOrientation) {
                     weakSelf.imageView.frame = _startingInfo.startingReferenceFrameForThumbnailInPresentingViewControllersOriginalOrientation;
@@ -1040,7 +1040,7 @@ typedef struct {
             [weakSelf.animationDelegate imageViewerWillAnimateDismissal:weakSelf withContainerView:weakSelf.view duration:duration];
         }
         
-        weakSelf.blackBackdrop.alpha = 0;
+//        weakSelf.blackBackdrop.alpha = 0;
         weakSelf.scrollView.alpha = 0;
         if ([UIApplication sharedApplication].jts_usesViewControllerBasedStatusBarAppearance) {
             [weakSelf setNeedsStatusBarAppearanceUpdate];
@@ -1078,7 +1078,7 @@ typedef struct {
             [weakSelf.animationDelegate imageViewerWillAnimateDismissal:weakSelf withContainerView:weakSelf.view duration:duration];
         }
         
-        weakSelf.blackBackdrop.alpha = 0;
+//        weakSelf.blackBackdrop.alpha = 0;
         weakSelf.scrollView.alpha = 0;
         CGFloat scaling = JTSImageViewController_MaxScalingForExpandingOffscreenStyleTransition;
         weakSelf.scrollView.transform = CGAffineTransformMakeScale(scaling, scaling);
@@ -1127,7 +1127,7 @@ typedef struct {
             [weakSelf.animationDelegate imageViewerWillAnimateDismissal:weakSelf withContainerView:weakSelf.view duration:duration];
         }
         
-        weakSelf.blackBackdrop.alpha = 0;
+//        weakSelf.blackBackdrop.alpha = 0;
         textViewSnapshot.alpha = 0;
         CGFloat targetScale = JTSImageViewController_MaxScalingForExpandingOffscreenStyleTransition;
         textViewSnapshot.transform = CGAffineTransformMakeScale(targetScale, targetScale);
@@ -1496,7 +1496,7 @@ typedef struct {
         if ([self.animationDelegate respondsToSelector:@selector(imageViewer:willAdjustInterfaceForZoomScale:withContainerView:duration:)]) {
             [self.animationDelegate imageViewer:self willAdjustInterfaceForZoomScale:zoomScale withContainerView:self.view duration:duration];
         }
-        self.blackBackdrop.alpha = targetAlpha;
+//        self.blackBackdrop.alpha = targetAlpha;
     } completion:nil];
 }
 
