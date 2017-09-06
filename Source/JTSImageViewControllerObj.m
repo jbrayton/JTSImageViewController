@@ -422,7 +422,7 @@ typedef struct {
 
 - (void)viewDidLoadForImageMode {
     
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor clearColor];
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
