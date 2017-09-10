@@ -25,7 +25,7 @@ CG_INLINE CGFLOAT_TYPE JTSImageFloatAbs(CGFLOAT_TYPE aFloat) {
 ///--------------------------------------------------------------------------------------------------------------------
 
 // Public Constants
-CGFloat const JTSImageViewController_DefaultAlphaForBackgroundDimmingOverlay = 0.66f;
+CGFloat const JTSImageViewController_DefaultAlphaForBackgroundDimmingOverlay = 0.80f;
 CGFloat const JTSImageViewController_DefaultBackgroundBlurRadius = 2.0f;
 
 // Private Constants
@@ -90,9 +90,6 @@ typedef struct {
 
 // Views
 @property (strong, nonatomic) UIView *progressContainer;
-//@property (strong, nonatomic) UIView *outerContainerForScrollView;
-//@property (strong, nonatomic) UIView *snapshotView;
-//@property (strong, nonatomic) UIView *blurredSnapshotView;
 @property (strong, nonatomic) UIView *blackBackdrop;
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -581,16 +578,6 @@ typedef struct {
     _flags.isAnimatingAPresentationOrDismissal = YES;
     self.view.userInteractionEnabled = NO;
     
-//    self.snapshotView = [self snapshotFromParentmostViewController:viewController];
-//    
-//    if (self.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//        self.blurredSnapshotView = [self blurredSnapshotFromParentmostViewController:viewController];
-//        [self.snapshotView addSubview:self.blurredSnapshotView];
-//        self.blurredSnapshotView.alpha = 0;
-//    }
-//    
-//    [self.view insertSubview:self.snapshotView atIndex:0];
-    
     _startingInfo.startingInterfaceOrientation = [UIApplication sharedApplication].statusBarOrientation;
     
     self.lastUsedOrientation = [UIApplication sharedApplication].statusBarOrientation;
@@ -617,19 +604,6 @@ typedef struct {
         self.imageView.frame = referenceFrameInMyView;
         self.imageView.layer.cornerRadius = self.imageInfo.referenceCornerRadius;
         [self updateScrollViewAndImageViewForCurrentMetrics];
-        
-        BOOL mustRotateDuringTransition = ([UIApplication sharedApplication].statusBarOrientation != _startingInfo.startingInterfaceOrientation);
-//        if (mustRotateDuringTransition) {
-//            CGRect newStartingRect = [self.snapshotView convertRect:_startingInfo.startingReferenceFrameForThumbnail toView:self.view];
-//            self.imageView.frame = newStartingRect;
-//            [self updateScrollViewAndImageViewForCurrentMetrics];
-//            self.imageView.transform = self.snapshotView.transform;
-//            CGPoint centerInRect = CGPointMake(_startingInfo.startingReferenceFrameForThumbnail.origin.x
-//                                               +_startingInfo.startingReferenceFrameForThumbnail.size.width/2.0f,
-//                                               _startingInfo.startingReferenceFrameForThumbnail.origin.y
-//                                               +_startingInfo.startingReferenceFrameForThumbnail.size.height/2.0f);
-//            self.imageView.center = centerInRect;
-//        }
         
         if ([self.optionsDelegate respondsToSelector:@selector(imageViewerShouldFadeThumbnailsDuringPresentationAndDismissal:)]) {
             if ([self.optionsDelegate imageViewerShouldFadeThumbnailsDuringPresentationAndDismissal:self]) {
@@ -699,20 +673,8 @@ typedef struct {
                      } else {
                          scaling = JTSImageViewController_MinimumBackgroundScaling;
                      }
-//                     weakSelf.snapshotView.transform = CGAffineTransformConcat(weakSelf.snapshotView.transform, CGAffineTransformMakeScale(scaling, scaling));
                      
-                     if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//                         weakSelf.blurredSnapshotView.alpha = 1;
-                     }
-                     
-                     if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Scaled) {
-                         [weakSelf addMotionEffectsToSnapshotView];
-                     }
                      weakSelf.blackBackdrop.alpha = self.alphaForBackgroundDimmingOverlay;
-                     
-                     if (mustRotateDuringTransition) {
-                         weakSelf.imageView.transform = CGAffineTransformIdentity;
-                     }
                      
                      CGRect endFrameForImageView;
                      if (weakSelf.image) {
@@ -826,15 +788,7 @@ typedef struct {
                  } else {
                      targetScaling = JTSImageViewController_MinimumBackgroundScaling;
                  }
-//                 weakSelf.snapshotView.transform = CGAffineTransformConcat(weakSelf.snapshotView.transform, CGAffineTransformMakeScale(targetScaling, targetScaling));
                  
-                 if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//                     weakSelf.blurredSnapshotView.alpha = 1;
-                 }
-                 
-                 if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Scaled) {
-                     [weakSelf addMotionEffectsToSnapshotView];
-                 }
                  weakSelf.blackBackdrop.alpha = self.alphaForBackgroundDimmingOverlay;
                  
                  weakSelf.scrollView.alpha = 1.0f;
@@ -935,15 +889,7 @@ typedef struct {
                  } else {
                      targetScaling = JTSImageViewController_MinimumBackgroundScaling;
                  }
-//                 weakSelf.snapshotView.transform = CGAffineTransformConcat(weakSelf.snapshotView.transform, CGAffineTransformMakeScale(targetScaling, targetScaling));
                  
-                 if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//                     weakSelf.blurredSnapshotView.alpha = 1;
-                 }
-                 
-                 if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Scaled) {
-                     [weakSelf addMotionEffectsToSnapshotView];
-                 }
                  weakSelf.blackBackdrop.alpha = self.alphaForBackgroundDimmingOverlay;
                  
                  textViewSnapshot.alpha = 1.0;
@@ -1062,47 +1008,24 @@ typedef struct {
                     [weakSelf.animationDelegate imageViewerWillAnimateDismissal:weakSelf withContainerView:weakSelf.view duration:duration];
                 }
                 
-//                weakSelf.snapshotView.transform = weakSelf.currentSnapshotRotationTransform;
-                [weakSelf removeMotionEffectsFromSnapshotView];
                 weakSelf.blackBackdrop.alpha = 0;
                 
                 if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
 //                    weakSelf.blurredSnapshotView.alpha = 0;
                 }
                 
-                BOOL mustRotateDuringTransition = ([UIApplication sharedApplication].statusBarOrientation != _startingInfo.startingInterfaceOrientation);
-                if (mustRotateDuringTransition) {
-//                    CGRect newEndingRect;
-//                    CGPoint centerInRect;
-//                    if (_startingInfo.presentingViewControllerPresentedFromItsUnsupportedOrientation) {
-//                        CGRect rectToConvert = _startingInfo.startingReferenceFrameForThumbnailInPresentingViewControllersOriginalOrientation;
-//                        CGRect rectForCentering = [weakSelf.snapshotView convertRect:rectToConvert toView:weakSelf.view];
-//                        centerInRect = CGPointMake(rectForCentering.origin.x+rectForCentering.size.width/2.0f,
-//                                                   rectForCentering.origin.y+rectForCentering.size.height/2.0f);
-//                        newEndingRect = _startingInfo.startingReferenceFrameForThumbnailInPresentingViewControllersOriginalOrientation;
-//                    } else {
-//                        newEndingRect = _startingInfo.startingReferenceFrameForThumbnail;
-//                        CGRect rectForCentering = [weakSelf.snapshotView convertRect:_startingInfo.startingReferenceFrameForThumbnail toView:weakSelf.view];
-//                        centerInRect = CGPointMake(rectForCentering.origin.x+rectForCentering.size.width/2.0f,
-//                                                   rectForCentering.origin.y+rectForCentering.size.height/2.0f);
-//                    }
-//                    weakSelf.imageView.frame = newEndingRect;
-//                    weakSelf.imageView.transform = weakSelf.currentSnapshotRotationTransform;
-//                    weakSelf.imageView.center = centerInRect;
+                if (_startingInfo.presentingViewControllerPresentedFromItsUnsupportedOrientation) {
+                    weakSelf.imageView.frame = _startingInfo.startingReferenceFrameForThumbnailInPresentingViewControllersOriginalOrientation;
                 } else {
-                    if (_startingInfo.presentingViewControllerPresentedFromItsUnsupportedOrientation) {
-                        weakSelf.imageView.frame = _startingInfo.startingReferenceFrameForThumbnailInPresentingViewControllersOriginalOrientation;
-                    } else {
-                        weakSelf.imageView.frame = _startingInfo.startingReferenceFrameForThumbnail;
-                    }
-                    
-                    // Rotation not needed, so fade the status bar back in. Looks nicer.
-                    if ([UIApplication sharedApplication].jts_usesViewControllerBasedStatusBarAppearance) {
-                        [weakSelf setNeedsStatusBarAppearanceUpdate];
-                    } else {
-                        [[UIApplication sharedApplication] setStatusBarHidden:_startingInfo.statusBarHiddenPriorToPresentation
-                                                                withAnimation:UIStatusBarAnimationFade];
-                    }
+                    weakSelf.imageView.frame = _startingInfo.startingReferenceFrameForThumbnail;
+                }
+                
+                // Rotation not needed, so fade the status bar back in. Looks nicer.
+                if ([UIApplication sharedApplication].jts_usesViewControllerBasedStatusBarAppearance) {
+                    [weakSelf setNeedsStatusBarAppearanceUpdate];
+                } else {
+                    [[UIApplication sharedApplication] setStatusBarHidden:_startingInfo.statusBarHiddenPriorToPresentation
+                                                            withAnimation:UIStatusBarAnimationFade];
                 }
             } completion:^(BOOL finished) {
                 
@@ -1146,11 +1069,7 @@ typedef struct {
         }
         
 //        weakSelf.snapshotView.transform = weakSelf.currentSnapshotRotationTransform;
-        [weakSelf removeMotionEffectsFromSnapshotView];
         weakSelf.blackBackdrop.alpha = 0;
-//        if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//            weakSelf.blurredSnapshotView.alpha = 0;
-//        }
         weakSelf.view.alpha = 0;
         if ([UIApplication sharedApplication].jts_usesViewControllerBasedStatusBarAppearance) {
             [weakSelf setNeedsStatusBarAppearanceUpdate];
@@ -1189,11 +1108,7 @@ typedef struct {
         }
         
 //        weakSelf.snapshotView.transform = weakSelf.currentSnapshotRotationTransform;
-        [weakSelf removeMotionEffectsFromSnapshotView];
         weakSelf.blackBackdrop.alpha = 0;
-        if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//            weakSelf.blurredSnapshotView.alpha = 0;
-        }
         weakSelf.scrollView.alpha = 0;
         CGFloat scaling = JTSImageViewController_MaxScalingForExpandingOffscreenStyleTransition;
         weakSelf.scrollView.transform = CGAffineTransformMakeScale(scaling, scaling);
@@ -1243,12 +1158,8 @@ typedef struct {
         }
         
 //        weakSelf.snapshotView.transform = weakSelf.currentSnapshotRotationTransform;
-        [weakSelf removeMotionEffectsFromSnapshotView];
         weakSelf.blackBackdrop.alpha = 0;
         textViewSnapshot.alpha = 0;
-        if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//            weakSelf.blurredSnapshotView.alpha = 0;
-        }
         CGFloat targetScale = JTSImageViewController_MaxScalingForExpandingOffscreenStyleTransition;
         textViewSnapshot.transform = CGAffineTransformMakeScale(targetScale, targetScale);
         if ([UIApplication sharedApplication].jts_usesViewControllerBasedStatusBarAppearance) {
@@ -1311,30 +1222,6 @@ typedef struct {
     imageView.backgroundColor = [UIColor clearColor];
     
     return imageView;
-}
-
-#pragma mark - Motion Effects
-
-- (void)addMotionEffectsToSnapshotView {
-    UIInterpolatingMotionEffect *verticalEffect;
-    verticalEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
-    verticalEffect.minimumRelativeValue = @(12);
-    verticalEffect.maximumRelativeValue = @(-12);
-    
-    UIInterpolatingMotionEffect *horizontalEffect;
-    horizontalEffect = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
-    horizontalEffect.minimumRelativeValue = @(12);
-    horizontalEffect.maximumRelativeValue = @(-12);
-    
-    UIMotionEffectGroup *effectGroup = [[UIMotionEffectGroup alloc] init];
-    effectGroup.motionEffects = @[horizontalEffect, verticalEffect];
-//    [self.snapshotView addMotionEffect:effectGroup];
-}
-
-- (void)removeMotionEffectsFromSnapshotView {
-//    for (UIMotionEffect *effect in self.snapshotView.motionEffects) {
-////        [self.snapshotView removeMotionEffect:effect];
-//    }
 }
 
 #pragma mark - Interface Updates
