@@ -428,10 +428,11 @@ typedef struct {
     self.view.backgroundColor = [UIColor clearColor];
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
-//    self.blackBackdrop = [[UIView alloc] initWithFrame:CGRectInset(self.view.bounds, -512, -512)];
-//    self.blackBackdrop.backgroundColor = [UIColor clearColor];
-//    self.blackBackdrop.alpha = 0;
-//    [self.view addSubview:self.blackBackdrop];
+    self.blackBackdrop = [[UIView alloc] initWithFrame:self.view.bounds];
+    self.blackBackdrop.backgroundColor = [UIColor blackColor];
+    self.blackBackdrop.alpha = [self alphaForBackgroundDimmingOverlay];
+    self.blackBackdrop.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:self.blackBackdrop];
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrollView.delegate = self;
@@ -501,7 +502,8 @@ typedef struct {
     
     self.blackBackdrop = [[UIView alloc] initWithFrame:CGRectInset(self.view.bounds, -512, -512)];
     self.blackBackdrop.backgroundColor = [UIColor clearColor];
-    self.blackBackdrop.alpha = 0;
+    self.blackBackdrop.alpha = [self alphaForBackgroundDimmingOverlay];
+    self.blackBackdrop.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.blackBackdrop];
     
     CGFloat outerMargin = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) ? 80.0 : 40.0;
