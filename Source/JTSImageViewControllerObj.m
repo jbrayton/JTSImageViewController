@@ -920,8 +920,10 @@ typedef struct {
     
     if ([self.optionsDelegate respondsToSelector:@selector(alphaForBackgroundDimmingOverlayInImageViewer:)]) {
         alpha = [self.optionsDelegate alphaForBackgroundDimmingOverlayInImageViewer:self];
-    } else {
+    } else if (_mode == JTSImageViewControllerMode_Image){
         alpha = JTSImageViewController_DefaultAlphaForBackgroundDimmingOverlay;
+    } else {
+        alpha = 1.0;
     }
     
     return alpha;
