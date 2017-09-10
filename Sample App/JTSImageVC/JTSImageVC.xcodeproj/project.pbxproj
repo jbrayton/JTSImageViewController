@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2119EC881F659C8200B967B2 /* JTSImageViewControllerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119EC871F659C8200B967B2 /* JTSImageViewControllerObj.m */; };
 		472FDE9A19DA4B68000C0864 /* Default-1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 472FDE9919DA4B68000C0864 /* Default-1136.png */; };
 		47A333FF19D8F34A00F60031 /* Default-1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A333FD19D8F34A00F60031 /* Default-1334.png */; };
 		47A3340019D8F34A00F60031 /* Default-2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A333FE19D8F34A00F60031 /* Default-2208.png */; };
@@ -24,7 +25,6 @@
 		7F9A792018E754A7000CAA69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F9A790218E754A7000CAA69 /* UIKit.framework */; };
 		7F9A792818E754A7000CAA69 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F9A792618E754A7000CAA69 /* InfoPlist.strings */; };
 		7F9A792A18E754A7000CAA69 /* JTSImageVCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A792918E754A7000CAA69 /* JTSImageVCTests.m */; };
-		7F9A793618E75541000CAA69 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A793518E75541000CAA69 /* JTSImageViewController.m */; };
 		7F9A793918E75558000CAA69 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A793818E75558000CAA69 /* JTSImageInfo.m */; };
 		7F9A793C18E75593000CAA69 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A793B18E75593000CAA69 /* JTSSimpleImageDownloader.m */; };
 		7F9A793F18E755F6000CAA69 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A793E18E755F6000CAA69 /* JTSAnimatedGIFUtility.m */; };
@@ -45,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2119EC861F659C8200B967B2 /* JTSImageViewControllerObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageViewControllerObj.h; path = ../../../Source/JTSImageViewControllerObj.h; sourceTree = "<group>"; };
+		2119EC871F659C8200B967B2 /* JTSImageViewControllerObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageViewControllerObj.m; path = ../../../Source/JTSImageViewControllerObj.m; sourceTree = "<group>"; };
 		472FDE9919DA4B68000C0864 /* Default-1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-1136.png"; sourceTree = "<group>"; };
 		47A333FD19D8F34A00F60031 /* Default-1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-1334.png"; sourceTree = "<group>"; };
 		47A333FE19D8F34A00F60031 /* Default-2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-2208.png"; sourceTree = "<group>"; };
@@ -67,8 +69,6 @@
 		7F9A792518E754A7000CAA69 /* JTSImageVCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JTSImageVCTests-Info.plist"; sourceTree = "<group>"; };
 		7F9A792718E754A7000CAA69 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7F9A792918E754A7000CAA69 /* JTSImageVCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JTSImageVCTests.m; sourceTree = "<group>"; };
-		7F9A793418E75541000CAA69 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageViewController.h; path = ../../../Source/JTSImageViewController.h; sourceTree = "<group>"; };
-		7F9A793518E75541000CAA69 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageViewController.m; path = ../../../Source/JTSImageViewController.m; sourceTree = "<group>"; };
 		7F9A793718E75558000CAA69 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageInfo.h; path = ../../../Source/JTSImageInfo.h; sourceTree = "<group>"; };
 		7F9A793818E75558000CAA69 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageInfo.m; path = ../../../Source/JTSImageInfo.m; sourceTree = "<group>"; };
 		7F9A793A18E75593000CAA69 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSSimpleImageDownloader.h; path = ../../../Source/JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 		7F9A793318E754D9000CAA69 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				7F9A793418E75541000CAA69 /* JTSImageViewController.h */,
-				7F9A793518E75541000CAA69 /* JTSImageViewController.m */,
+				2119EC861F659C8200B967B2 /* JTSImageViewControllerObj.h */,
+				2119EC871F659C8200B967B2 /* JTSImageViewControllerObj.m */,
 				7F9A793718E75558000CAA69 /* JTSImageInfo.h */,
 				7F9A793818E75558000CAA69 /* JTSImageInfo.m */,
 				7F9A793A18E75593000CAA69 /* JTSSimpleImageDownloader.h */,
@@ -256,6 +256,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Nice Boy, LLC";
 				TargetAttributes = {
+					7F9A78FA18E754A7000CAA69 = {
+						DevelopmentTeam = 372S63A2R8;
+					};
 					7F9A791B18E754A7000CAA69 = {
 						TestTargetID = 7F9A78FA18E754A7000CAA69;
 					};
@@ -315,10 +318,10 @@
 				7FE95B4E18EE0E8100F18370 /* UIApplication+JTSImageViewController.m in Sources */,
 				7F9A791518E754A7000CAA69 /* JTSViewController.m in Sources */,
 				7F9A793C18E75593000CAA69 /* JTSSimpleImageDownloader.m in Sources */,
+				2119EC881F659C8200B967B2 /* JTSImageViewControllerObj.m in Sources */,
 				7F9A790F18E754A7000CAA69 /* JTSAppDelegate.m in Sources */,
 				7F9A794218E75712000CAA69 /* UIImage+JTSImageEffects.m in Sources */,
 				7F9A793F18E755F6000CAA69 /* JTSAnimatedGIFUtility.m in Sources */,
-				7F9A793618E75541000CAA69 /* JTSImageViewController.m in Sources */,
 				7F9A790B18E754A7000CAA69 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,6 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 372S63A2R8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JTSImageVC/JTSImageVC-Prefix.pch";
 				INFOPLIST_FILE = "JTSImageVC/JTSImageVC-Info.plist";
@@ -461,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 372S63A2R8;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JTSImageVC/JTSImageVC-Prefix.pch";
 				INFOPLIST_FILE = "JTSImageVC/JTSImageVC-Info.plist";

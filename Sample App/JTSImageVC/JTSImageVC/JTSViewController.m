@@ -8,7 +8,7 @@
 
 #import "JTSViewController.h"
 
-#import "JTSImageViewController.h"
+#import "JTSImageViewControllerObj.h"
 #import "JTSImageInfo.h"
 
 #define TRY_AN_ANIMATED_GIF 0
@@ -26,10 +26,6 @@
     [self.bigImageButton addGestureRecognizer:tapRecognizer];
     [self.bigImageButton setAccessibilityLabel:@"Photo of a cat wearing a Bane costume."];
     self.bigImageButton.layer.cornerRadius = self.bigImageButton.bounds.size.width/2.0f;
-}
-
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
-    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)bigButtonTapped:(id)sender {
