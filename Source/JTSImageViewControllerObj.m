@@ -878,6 +878,7 @@ typedef struct {
     
     __weak JTSImageViewController *weakSelf = self;
     
+    self.textView.hidden = YES;
     [viewController presentViewController:weakSelf animated:NO completion:^{
         
         if ([UIApplication sharedApplication].statusBarOrientation != _startingInfo.startingInterfaceOrientation) {
