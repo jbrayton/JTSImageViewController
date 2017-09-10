@@ -500,7 +500,7 @@ typedef struct {
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     self.blackBackdrop = [[UIView alloc] initWithFrame:self.view.bounds];
-    self.blackBackdrop.backgroundColor = [UIColor clearColor];
+    self.blackBackdrop.backgroundColor = [UIColor blackColor];
     self.blackBackdrop.alpha = 0.0;
     self.blackBackdrop.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.blackBackdrop];
