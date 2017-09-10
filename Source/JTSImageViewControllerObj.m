@@ -496,7 +496,7 @@ typedef struct {
 }
 
 - (void)viewDidLoadForAltTextMode {
-    
+    self.view.alpha = 0.0;
     self.view.backgroundColor = [UIColor blackColor];
     self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
@@ -700,16 +700,9 @@ typedef struct {
                      } else {
                          scaling = JTSImageViewController_MinimumBackgroundScaling;
                      }
-//                     weakSelf.snapshotView.transform = CGAffineTransformConcat(weakSelf.snapshotView.transform, CGAffineTransformMakeScale(scaling, scaling));
                      
-                     if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//                         weakSelf.blurredSnapshotView.alpha = 1;
-                     }
-                     
-                     if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Scaled) {
-                         [weakSelf addMotionEffectsToSnapshotView];
-                     }
                      weakSelf.blackBackdrop.alpha = self.alphaForBackgroundDimmingOverlay;
+                     weakSelf.view.alpha = 1.0;
                      
                      if (mustRotateDuringTransition) {
                          weakSelf.imageView.transform = CGAffineTransformIdentity;
