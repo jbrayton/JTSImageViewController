@@ -88,6 +88,8 @@ typedef struct {
 @property (assign, nonatomic) UIInterfaceOrientation lastUsedOrientation;
 @property (assign, nonatomic) CGAffineTransform currentSnapshotRotationTransform;
 
+@property (assign, nonatomic) BOOL didChangeSize;
+
 // Views
 @property (strong, nonatomic) UIView *progressContainer;
 @property (strong, nonatomic) UIView *blackBackdrop;
@@ -136,6 +138,7 @@ typedef struct {
         _currentSnapshotRotationTransform = CGAffineTransformIdentity;
         _mode = mode;
         _backgroundOptions = backgroundOptions;
+        _didChangeSize = NO;
         if (_mode == JTSImageViewControllerMode_Image) {
             [self setupImageAndDownloadIfNecessary:imageInfo];
         }
@@ -186,7 +189,8 @@ typedef struct {
             BOOL startingRectForThumbnailIsNonZero = (CGRectEqualToRect(CGRectZero, _startingInfo.startingReferenceFrameForThumbnail) == NO);
             BOOL useCollapsingThumbnailStyle = (startingRectForThumbnailIsNonZero
                                                 && self.image != nil
-                                                && self.transition != JTSImageViewControllerTransition_FromOffscreen);
+                                                && self.transition != JTSImageViewControllerTransition_FromOffscreen
+                                                && !_didChangeSize);
             if (useCollapsingThumbnailStyle) {
                 [self dismissByCollapsingImageBackToOriginalPosition];
             } else {
@@ -321,10 +325,10 @@ typedef struct {
     });
 }
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED > __IPHONE_7_1
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
     _flags.rotationTransformIsDirty = YES;
     _flags.isRotating = YES;
+    _didChangeSize = YES;
     typeof(self) __weak weakSelf = self;
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
         typeof(self) strongSelf = weakSelf;
@@ -340,7 +344,6 @@ typedef struct {
     }];
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
-#endif
 
 - (void)deviceOrientationDidChange:(NSNotification *)notification {
     
