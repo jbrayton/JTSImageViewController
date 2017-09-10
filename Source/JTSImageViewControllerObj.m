@@ -1071,7 +1071,6 @@ typedef struct {
             [weakSelf.animationDelegate imageViewerWillAnimateDismissal:weakSelf withContainerView:weakSelf.view duration:duration];
         }
         
-//        weakSelf.snapshotView.transform = weakSelf.currentSnapshotRotationTransform;
         weakSelf.blackBackdrop.alpha = 0;
         weakSelf.view.alpha = 0;
         if ([UIApplication sharedApplication].jts_usesViewControllerBasedStatusBarAppearance) {
@@ -1110,7 +1109,6 @@ typedef struct {
             [weakSelf.animationDelegate imageViewerWillAnimateDismissal:weakSelf withContainerView:weakSelf.view duration:duration];
         }
         
-//        weakSelf.snapshotView.transform = weakSelf.currentSnapshotRotationTransform;
         weakSelf.blackBackdrop.alpha = 0;
         weakSelf.scrollView.alpha = 0;
         CGFloat scaling = JTSImageViewController_MaxScalingForExpandingOffscreenStyleTransition;
@@ -1160,7 +1158,6 @@ typedef struct {
             [weakSelf.animationDelegate imageViewerWillAnimateDismissal:weakSelf withContainerView:weakSelf.view duration:duration];
         }
         
-//        weakSelf.snapshotView.transform = weakSelf.currentSnapshotRotationTransform;
         weakSelf.blackBackdrop.alpha = 0;
         textViewSnapshot.alpha = 0;
         CGFloat targetScale = JTSImageViewController_MaxScalingForExpandingOffscreenStyleTransition;
@@ -1332,7 +1329,6 @@ typedef struct {
         }
     }
     
-//    self.snapshotView.center = CGPointMake(self.view.bounds.size.width/2.0f, self.view.bounds.size.height/2.0f);
     
     if (_flags.rotationTransformIsDirty) {
         _flags.rotationTransformIsDirty = NO;
@@ -1347,9 +1343,6 @@ typedef struct {
             } else {
                 targetScaling = JTSImageViewController_MinimumBackgroundScaling;
             }
-//            self.snapshotView.transform = CGAffineTransformConcat(transform, CGAffineTransformMakeScale(targetScaling, targetScaling));
-        } else {
-//            self.snapshotView.transform = transform;
         }
     }
 }
