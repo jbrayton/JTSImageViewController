@@ -723,15 +723,6 @@ typedef struct {
     _flags.isAnimatingAPresentationOrDismissal = YES;
     self.view.userInteractionEnabled = NO;
     
-//    self.snapshotView = [self snapshotFromParentmostViewController:viewController];
-//    
-//    if (self.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//        self.blurredSnapshotView = [self blurredSnapshotFromParentmostViewController:viewController];
-//        [self.snapshotView addSubview:self.blurredSnapshotView];
-//        self.blurredSnapshotView.alpha = 0;
-//    }
-    
-//    [self.view insertSubview:self.snapshotView atIndex:0];
     _startingInfo.startingInterfaceOrientation = [UIApplication sharedApplication].statusBarOrientation;
     self.lastUsedOrientation = [UIApplication sharedApplication].statusBarOrientation;
     CGRect referenceFrameInWindow = [self.imageInfo.referenceView convertRect:self.imageInfo.referenceRect toView:nil];
@@ -819,15 +810,6 @@ typedef struct {
     _flags.isAnimatingAPresentationOrDismissal = YES;
     self.view.userInteractionEnabled = NO;
     
-//    self.snapshotView = [self snapshotFromParentmostViewController:viewController];
-//    
-//    if (self.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//        self.blurredSnapshotView = [self blurredSnapshotFromParentmostViewController:viewController];
-//        [self.snapshotView addSubview:self.blurredSnapshotView];
-//        self.blurredSnapshotView.alpha = 0;
-//    }
-//    
-//    [self.view insertSubview:self.snapshotView atIndex:0];
     _startingInfo.startingInterfaceOrientation = [UIApplication sharedApplication].statusBarOrientation;
     self.lastUsedOrientation = [UIApplication sharedApplication].statusBarOrientation;
     CGRect referenceFrameInWindow = [self.imageInfo.referenceView convertRect:self.imageInfo.referenceRect toView:nil];
@@ -1014,10 +996,6 @@ typedef struct {
                 }
                 
                 weakSelf.blackBackdrop.alpha = 0;
-                
-                if (weakSelf.backgroundOptions & JTSImageViewControllerBackgroundOption_Blurred) {
-//                    weakSelf.blurredSnapshotView.alpha = 0;
-                }
                 
                 if (_startingInfo.presentingViewControllerPresentedFromItsUnsupportedOrientation) {
                     weakSelf.imageView.frame = _startingInfo.startingReferenceFrameForThumbnailInPresentingViewControllersOriginalOrientation;
