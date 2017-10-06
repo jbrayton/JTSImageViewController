@@ -32,7 +32,7 @@
     
     // Create image info
     JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
-    imageInfo.image = [UIImage imageNamed:@"xkcd.jpeg"];
+    imageInfo.image = [UIImage imageNamed:@"xkcdsideways.jpeg"];
     imageInfo.referenceRect = self.bigImageButton.frame;
     imageInfo.referenceView = self.bigImageButton.superview;
     imageInfo.referenceContentMode = self.bigImageButton.contentMode;

@@ -1364,8 +1364,8 @@ typedef struct {
 
 - (UIEdgeInsets)contentInsetForScrollView:(CGFloat)targetZoomScale {
     UIEdgeInsets inset = UIEdgeInsetsZero;
-    CGFloat boundsHeight = self.scrollView.bounds.size.height;
-    CGFloat boundsWidth = self.scrollView.bounds.size.width;
+    CGFloat boundsHeight = self.view.safeAreaLayoutGuide.layoutFrame.size.height;
+    CGFloat boundsWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
     CGFloat contentHeight = (self.image.size.height > 0) ? self.image.size.height : boundsHeight;
     CGFloat contentWidth = (self.image.size.width > 0) ? self.image.size.width : boundsWidth;
     CGFloat minContentHeight;
