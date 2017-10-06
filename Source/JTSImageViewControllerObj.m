@@ -687,9 +687,12 @@ typedef struct {
                      }
                      weakSelf.imageView.frame = endFrameForImageView;
                      
-                     CGPoint endCenterForImageView = CGPointMake(weakSelf.view.bounds.size.width/2.0f, weakSelf.view.safeAreaLayoutGuide.layoutFrame.size.height/2.0f + weakSelf.view.safeAreaLayoutGuide.layoutFrame.origin.y);
+                     CGPoint endCenterForImageView = CGPointMake(weakSelf.view.bounds.size.width/2.0f, weakSelf.view.bounds.size.height/2.0f + weakSelf.view.bounds.origin.y);
+                     if (@available(iOS 11.0, *)) {
+                         endCenterForImageView = CGPointMake(weakSelf.view.bounds.size.width/2.0f, weakSelf.view.safeAreaLayoutGuide.layoutFrame.size.height/2.0f + weakSelf.view.safeAreaLayoutGuide.layoutFrame.origin.y);
+                     }
                      weakSelf.imageView.center = endCenterForImageView;
-                     
+
                      if (weakSelf.image == nil) {
                          weakSelf.progressContainer.alpha = 1.0f;
                      }
@@ -1364,8 +1367,12 @@ typedef struct {
 
 - (UIEdgeInsets)contentInsetForScrollView:(CGFloat)targetZoomScale {
     UIEdgeInsets inset = UIEdgeInsetsZero;
-    CGFloat boundsHeight = self.view.safeAreaLayoutGuide.layoutFrame.size.height;
-    CGFloat boundsWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
+    CGFloat boundsHeight = self.view.bounds.size.height;
+    CGFloat boundsWidth = self.view.bounds.size.width;
+    if (@available(iOS 11.0, *)) {
+        boundsHeight = self.view.safeAreaLayoutGuide.layoutFrame.size.height;
+        boundsWidth = self.view.safeAreaLayoutGuide.layoutFrame.size.width;
+   }
     CGFloat contentHeight = (self.image.size.height > 0) ? self.image.size.height : boundsHeight;
     CGFloat contentWidth = (self.image.size.width > 0) ? self.image.size.width : boundsWidth;
     CGFloat minContentHeight;
@@ -1407,7 +1414,10 @@ typedef struct {
 }
 
 - (CGRect)resizedFrameForAutorotatingImageView:(CGSize)imageSize {
-    CGRect frame = self.view.safeAreaLayoutGuide.layoutFrame;
+    CGRect frame = self.view.bounds;
+    if (@available(iOS 11.0, *)) {
+        frame = self.view.safeAreaLayoutGuide.layoutFrame;
+    }
     CGFloat screenWidth = frame.size.width * self.scrollView.zoomScale;
     CGFloat screenHeight = frame.size.height * self.scrollView.zoomScale;
     CGFloat targetWidth = screenWidth;
@@ -1432,7 +1442,6 @@ typedef struct {
         }
     }
     frame.size = CGSizeMake(targetWidth, targetHeight);
-    frame.origin = self.view.safeAreaLayoutGuide.layoutFrame.origin;
     return frame;
 }
 
