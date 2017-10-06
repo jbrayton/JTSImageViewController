@@ -687,7 +687,7 @@ typedef struct {
                      }
                      weakSelf.imageView.frame = endFrameForImageView;
                      
-                     CGPoint endCenterForImageView = CGPointMake(weakSelf.view.bounds.size.width/2.0f, weakSelf.view.bounds.size.height/2.0f);
+                     CGPoint endCenterForImageView = CGPointMake(weakSelf.view.bounds.size.width/2.0f, weakSelf.view.safeAreaLayoutGuide.layoutFrame.size.height/2.0f + weakSelf.view.safeAreaLayoutGuide.layoutFrame.origin.y);
                      weakSelf.imageView.center = endCenterForImageView;
                      
                      if (weakSelf.image == nil) {
@@ -1407,7 +1407,7 @@ typedef struct {
 }
 
 - (CGRect)resizedFrameForAutorotatingImageView:(CGSize)imageSize {
-    CGRect frame = self.view.bounds;
+    CGRect frame = self.view.safeAreaLayoutGuide.layoutFrame;
     CGFloat screenWidth = frame.size.width * self.scrollView.zoomScale;
     CGFloat screenHeight = frame.size.height * self.scrollView.zoomScale;
     CGFloat targetWidth = screenWidth;
@@ -1432,7 +1432,7 @@ typedef struct {
         }
     }
     frame.size = CGSizeMake(targetWidth, targetHeight);
-    frame.origin = CGPointMake(0, 0);
+    frame.origin = self.view.safeAreaLayoutGuide.layoutFrame.origin;
     return frame;
 }
 
