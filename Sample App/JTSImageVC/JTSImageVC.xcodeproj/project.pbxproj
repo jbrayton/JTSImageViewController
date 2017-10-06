@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2119EC881F659C8200B967B2 /* JTSImageViewControllerObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 2119EC871F659C8200B967B2 /* JTSImageViewControllerObj.m */; };
+		21A14AE11F87B50400BBEAD1 /* xkcdsideways.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 21A14AE01F87B50400BBEAD1 /* xkcdsideways.jpeg */; };
+		21D47B691F858095004FA1B9 /* xkcd.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 21D47B681F858095004FA1B9 /* xkcd.jpeg */; };
+		21D47B6B1F85848B004FA1B9 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D47B6A1F85848B004FA1B9 /* Launch.storyboard */; };
 		472FDE9A19DA4B68000C0864 /* Default-1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 472FDE9919DA4B68000C0864 /* Default-1136.png */; };
 		47A333FF19D8F34A00F60031 /* Default-1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A333FD19D8F34A00F60031 /* Default-1334.png */; };
 		47A3340019D8F34A00F60031 /* Default-2208.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A333FE19D8F34A00F60031 /* Default-2208.png */; };
@@ -46,6 +49,9 @@
 /* Begin PBXFileReference section */
 		2119EC861F659C8200B967B2 /* JTSImageViewControllerObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTSImageViewControllerObj.h; path = ../../../Source/JTSImageViewControllerObj.h; sourceTree = "<group>"; };
 		2119EC871F659C8200B967B2 /* JTSImageViewControllerObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTSImageViewControllerObj.m; path = ../../../Source/JTSImageViewControllerObj.m; sourceTree = "<group>"; };
+		21A14AE01F87B50400BBEAD1 /* xkcdsideways.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xkcdsideways.jpeg; path = ../../xkcdsideways.jpeg; sourceTree = "<group>"; };
+		21D47B681F858095004FA1B9 /* xkcd.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xkcd.jpeg; path = ../../xkcd.jpeg; sourceTree = "<group>"; };
+		21D47B6A1F85848B004FA1B9 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		472FDE9919DA4B68000C0864 /* Default-1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-1136.png"; sourceTree = "<group>"; };
 		47A333FD19D8F34A00F60031 /* Default-1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-1334.png"; sourceTree = "<group>"; };
 		47A333FE19D8F34A00F60031 /* Default-2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-2208.png"; sourceTree = "<group>"; };
@@ -138,6 +144,8 @@
 		7F9A790418E754A7000CAA69 /* Sample App */ = {
 			isa = PBXGroup;
 			children = (
+				21D47B681F858095004FA1B9 /* xkcd.jpeg */,
+				21A14AE01F87B50400BBEAD1 /* xkcdsideways.jpeg */,
 				7FE0848118E7C5C600F2F6B4 /* banecat.jpg */,
 				7FA8566619B2762F00913254 /* banecat-red.png */,
 				47A333FD19D8F34A00F60031 /* Default-1334.png */,
@@ -146,6 +154,7 @@
 				7F9A790D18E754A7000CAA69 /* JTSAppDelegate.h */,
 				7F9A790E18E754A7000CAA69 /* JTSAppDelegate.m */,
 				7F9A791018E754A7000CAA69 /* Main.storyboard */,
+				21D47B6A1F85848B004FA1B9 /* Launch.storyboard */,
 				7F9A791318E754A7000CAA69 /* JTSViewController.h */,
 				7F9A791418E754A7000CAA69 /* JTSViewController.m */,
 				7F9A791618E754A7000CAA69 /* Images.xcassets */,
@@ -284,13 +293,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				472FDE9A19DA4B68000C0864 /* Default-1136.png in Resources */,
+				21D47B6B1F85848B004FA1B9 /* Launch.storyboard in Resources */,
 				7FE0848218E7C5C600F2F6B4 /* banecat.jpg in Resources */,
+				21D47B691F858095004FA1B9 /* xkcd.jpeg in Resources */,
 				7FA8566719B2762F00913254 /* banecat-red.png in Resources */,
 				47A3340019D8F34A00F60031 /* Default-2208.png in Resources */,
 				47A333FF19D8F34A00F60031 /* Default-1334.png in Resources */,
 				7F9A791718E754A7000CAA69 /* Images.xcassets in Resources */,
 				7F9A790918E754A7000CAA69 /* InfoPlist.strings in Resources */,
 				7F9A791218E754A7000CAA69 /* Main.storyboard in Resources */,
+				21A14AE11F87B50400BBEAD1 /* xkcdsideways.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +458,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JTSImageVC/JTSImageVC-Prefix.pch";
 				INFOPLIST_FILE = "JTSImageVC/JTSImageVC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jaredsinclair.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = "";
@@ -463,7 +475,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JTSImageVC/JTSImageVC-Prefix.pch";
 				INFOPLIST_FILE = "JTSImageVC/JTSImageVC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jaredsinclair.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = "";
