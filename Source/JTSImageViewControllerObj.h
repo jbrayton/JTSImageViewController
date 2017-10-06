@@ -75,7 +75,7 @@ extern CGFloat const JTSImageViewController_DefaultBackgroundBlurRadius;
  */
 - (instancetype)initWithImageInfo:(JTSImageInfo *)imageInfo
                              mode:(JTSImageViewControllerMode)mode
-                  backgroundStyle:(JTSImageViewControllerBackgroundOptions)backgroundOptions;
+                  backgroundStyle:(JTSImageViewControllerBackgroundOptions)backgroundStyle;
 
 /**
  JTSImageViewController is presented from viewController as a UIKit modal view controller.
